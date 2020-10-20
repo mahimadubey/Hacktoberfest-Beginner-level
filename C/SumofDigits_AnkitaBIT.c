@@ -1,17 +1,17 @@
 #include<stdio.h>
 
-void main()
-{   
-    int n,r;
-    int sum=0;
+int sum_of_digit(int n) 
+{ 
+    if (n == 0) 
+       return 0; 
+    return (n % 10 + sum_of_digit(n / 10)); 
+} 
+
+void main() 
+{ 
+    int n;
     printf("Enter A Number:");   //Ask User for Number
     scanf("%d",&n);
-    while(n>0)
-    {
-        r=n%10;             //Finding digits one by one
-        sum+=r;             //Perform Sum of Digits
-        n/=10;              //Dividing Numbers one by one
-    }
-    printf("\nThe Sum of digits of %d is %d",n,sum);        //Printing the sum
-  
-}
+    int result = sum_of_digit(n); 
+    printf("The sum of digits in %d is %d\n", n, result);
+} 
